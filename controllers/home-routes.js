@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
+// generates homepage 
 router.get('/', (req, res) => {
     // show the main.handlebars template along with all data 
     Post.findAll({
@@ -33,4 +34,9 @@ router.get('/', (req, res) => {
       });
   });
 
+// generates login/signup page 
+router.get('/login', (req, res) => {
+    res.render('login');
+  });
+  
 module.exports = router;
