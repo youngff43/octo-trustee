@@ -4,6 +4,8 @@ const { Post, User, Comment } = require('../models');
 
 // generates homepage 
 router.get('/', (req, res) => {
+    // console log the session variables
+    console.log(req.session);
     // show the main.handlebars template along with all data 
     Post.findAll({
         attributes: ['id', 'post_url', 'title', 'created_at' ],
@@ -36,7 +38,11 @@ router.get('/', (req, res) => {
 
 // generates login/signup page 
 router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+    }
     res.render('login');
   });
-  
+
 module.exports = router;
