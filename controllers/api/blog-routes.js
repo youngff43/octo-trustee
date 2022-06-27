@@ -1,17 +1,17 @@
 // CRUD operations
 
 const router = require('express').Router();
-const { Post, User, Comment } = require('../../models');
+const { Blog, User, Comment } = require('../../models');
 
-// GET /api/posts/
+// GET /api/blogs/
 router.get('/', (req, res) => {
-    Post.findAll({
-      attributes: ['id', 'post_url', 'title', 'created_at'],
+    Blog.findAll({
+      attributes: ['id', 'blog_url', 'title', 'created_at'],
       order: [['created_at', 'DESC']], 
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: ['id', 'comment_text', 'blog_id', 'user_id', 'created_at'],
           include: {
             model: User,
             attributes: ['username']
@@ -23,24 +23,24 @@ router.get('/', (req, res) => {
         }
       ]
     })
-      .then(dbPostData => res.json(dbPostData))
+      .then(dbBlogData => res.json(dbBlogData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
       });
   });
 
-// GET /api/posts/:id
+// GET /api/blogs/:id
 router.get('/:id', (req, res) => {
-    Post.findOne({
+    Blog.findOne({
       where: {
         id: req.params.id
       },
-      attributes: ['id', 'post_url', 'title', 'created_at'],
+      attributes: ['id', 'blog_url', 'title', 'created_at'],
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: ['id', 'comment_text', 'blog_id', 'user_id', 'created_at'],
           include: {
             model: User,
             attributes: ['username']
@@ -52,12 +52,12 @@ router.get('/:id', (req, res) => {
         }
       ]
     })
-      .then(dbPostData => {
-        if (!dbPostData) {
-          res.status(404).json({ message: 'No post found with this id' });
+      .then(dbBlogData => {
+        if (!dbBlogData) {
+          res.status(404).json({ message: 'No blog found with this id' });
           return;
         }
-        res.json(dbPostData);
+        res.json(dbBlogData);
       })
       .catch(err => {
         console.log(err);
@@ -65,23 +65,23 @@ router.get('/:id', (req, res) => {
       });
   });
 
-// POST /api/posts/
+// POST /api/blogs/
 router.post('/', (req, res) => {
-    Post.create({
+    Blog.create({
       title: req.body.title,
-      post_url: req.body.post_url,
+      blog_url: req.body.blog_url,
       user_id: req.body.user_id
     })
-      .then(dbPostData => res.json(dbPostData))
+      .then(dbBlogData => res.json(dbBlogData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
       });
   });
 
-// PUT /api/posts/:id
+// PUT /api/blogs/:id
 router.put('/:id', (req, res) => {
-    Post.update(
+    Blog.update(
       {
         title: req.body.title
       },
@@ -91,12 +91,12 @@ router.put('/:id', (req, res) => {
         }
       }
     )
-      .then(dbPostData => {
-        if (!dbPostData) {
-          res.status(404).json({ message: 'No post found with this id' });
+      .then(dbBlogData => {
+        if (!dbBlogData) {
+          res.status(404).json({ message: 'No blog found with this id' });
           return;
         }
-        res.json(dbPostData);
+        res.json(dbBlogData);
       })
       .catch(err => {
         console.log(err);
@@ -104,19 +104,19 @@ router.put('/:id', (req, res) => {
       });
   });
 
-// DELETE /api/posts/:id
+// DELETE /api/blogs/:id
 router.delete('/:id', (req, res) => {
-  Post.destroy({
+  Blog.destroy({
     where: {
       id: req.params.id
     }
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+    .then(dbBlogData => {
+      if (!dbBlogData) {
+        res.status(404).json({ message: 'No blog found with this id' });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbBlogData);
     })
     .catch(err => {
       console.log(err);

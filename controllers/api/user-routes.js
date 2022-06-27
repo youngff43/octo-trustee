@@ -1,7 +1,7 @@
 // CRUD operations
 
 const router = require('express').Router();
-const { User, Post, Comment } = require('../../models');
+const { User, Blog, Comment } = require('../../models');
 
 // GET /api/users
 router.get('/', (req, res) => {
@@ -26,14 +26,14 @@ router.get('/:id', (req, res) => {
       },
       include: [
         {
-          model: Post,
-          attributes: ['id', 'title', 'post_url', 'created_at']
+          model: Blog,
+          attributes: ['id', 'title', 'blog_url', 'created_at']
         },
         {
           model: Comment,
           attributes: ['id', 'comment_text', 'created_at'],
           include: {
-            model: Post,
+            model: Blog,
             attributes: ['title']
           }
         },
