@@ -36,7 +36,7 @@
     background-color: #3486eb;
   }
   
-  .post-list {
+  .blog-list {
     margin: 0;
     padding: 0;
   }
@@ -109,20 +109,20 @@
     color: #3486eb;
   }
   
-  .delete-post-btn {
+  .delete-blog-btn {
     background-color: #d41414;
   }
   
-  .delete-post-btn:hover {
+  .delete-blog-btn:hover {
     background-color: #ff643d;
   }
   
-  .post {
+  .blog {
     margin-bottom: 2%;
     line-height: 150%;
   }
   
-  .post .title span {
+  .blog .title span {
     font-style: italic;
     font-size: 90%;
     color: #7d7d7d;
@@ -131,15 +131,6 @@
   .edit-link {
     display: block;
     margin: -1.5% 0 2% 0;
-  }
-  
-  .upvote-btn {
-    background-color: #197d0f;
-    transition: background-color .1s;
-  }
-  
-  .upvote-btn:hover {
-    background-color: #1f9c13;
   }
   
   .comment-form {
@@ -161,11 +152,11 @@
     opacity: .6;
   }
   
-  .new-post-form input {
+  .new-blog-form input {
     width: 300px;
   }
   
-  .edit-post-form {
+  .edit-blog-form {
     margin-bottom: 5%;
   }
   

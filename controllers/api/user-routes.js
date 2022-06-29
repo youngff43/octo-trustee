@@ -69,7 +69,11 @@ router.post('/', (req, res) => {
         res.json(dbUserData);
       });
     })
-})
+    .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+    });
+  });
 
 // POST /api/users/login
 router.post('/login', (req, res) => {

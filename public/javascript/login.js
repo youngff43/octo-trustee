@@ -9,7 +9,7 @@ async function signupFormHandler(event) {
 
     // conditional to ensure that username, email, and password have values before making the POST request
     if (username && email && password) {
-        await fetch('/api/users', {
+      const response = await fetch('/api/users', {
           method: 'post',
           body: JSON.stringify({
             username,
@@ -25,7 +25,8 @@ async function signupFormHandler(event) {
         } else {
             alert(response.statusText);
         }
-    }}
+      }
+    }
 
 // async function to handle the login submission
 async function loginFormHandler(event) {
@@ -45,9 +46,9 @@ async function loginFormHandler(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-
         // check the response status
         if (response.ok) {
+            console.log('This worked');
             document.location.replace('/');
         } else {
             alert(response.statusText);

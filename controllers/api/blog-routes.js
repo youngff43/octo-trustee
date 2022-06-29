@@ -1,5 +1,4 @@
 // CRUD operations
-
 const router = require('express').Router();
 const { Blog, User, Comment } = require('../../models');
 
