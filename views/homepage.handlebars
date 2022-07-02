@@ -2,18 +2,7 @@
 {{!-- begins the loop for every blog and declares a variable name --}}
 {{#each blogs as |blog|}}
   <li>
-    <article class="blog">
-      <div class="title">
-        <a href="{{blog.blog_url}}" target="_blank">{{blog.title}}</a>
-        <span>({{blog.blog_url}})</span>
-      </div>
-      <div class="meta">
-        Author: {{blog.user.username}} on
-        {{blog.created_at}}
-        |
-        <a href="/blog/{{blog.id}}">{{blog.comments.length}} comment(s)</a>
-      </div>
-    </article>
+    {{> blog-info blog }}
   </li>
 {{/each}}
 </ol>
