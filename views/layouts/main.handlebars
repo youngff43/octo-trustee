@@ -14,8 +14,10 @@
       <h1>
         <a href="/">Tech Blog</a>
       </h1>
+    {{!-- navigation links including the login, logout, and dashboard --}}
     <nav>
       {{#if loggedIn}}
+        <a href="/dashboard">Dashboard</a>
         <button id="logout" class="btn-no-style">Logout</button>
       {{else}}
         <a href="/login">Login</a>
