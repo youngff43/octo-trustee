@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     console.log(req.session);
     // show the main.handlebars template along with all data 
     Blog.findAll({
-        attributes: ['id', 'blog_url', 'title', 'created_at' ],
+        attributes: ['id', 'content', 'title', 'created_at' ],
         include: [
             {
             model: Comment,
@@ -38,27 +38,13 @@ router.get('/', (req, res) => {
       });
   });
 
-// generates login/signup page 
-router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-    }
-    res.render('login');
-  });
-
 // generates the single blog view 
 router.get('/blog/:id', (req, res) => {
   Blog.findOne({
     where: {
       id: req.params.id
     },
-    attributes: [
-      'id',
-      'blog_url',
-      'title',
-      'created_at',
-    ],
+    attributes: ['id', 'content', 'title', 'created_at'],
     include: [
       {
         model: Comment,
@@ -92,6 +78,15 @@ router.get('/blog/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+// generates login/signup page 
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+  res.redirect('/');
+  return;
+  }
+  res.render('login');
 });
 
 module.exports = router;

@@ -1,11 +1,12 @@
 // CRUD operations
 const router = require('express').Router();
 const { Blog, User, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET /api/blogs/
 router.get('/', (req, res) => {
     Blog.findAll({
-      attributes: ['id', 'blog_url', 'title', 'created_at'],
+      attributes: ['id', 'title', 'content', 'created_at'],
       order: [['created_at', 'DESC']], 
       include: [
         {
@@ -35,7 +36,7 @@ router.get('/:id', (req, res) => {
       where: {
         id: req.params.id
       },
-      attributes: ['id', 'blog_url', 'title', 'created_at'],
+      attributes: ['id', 'title', 'content', 'created_at'],
       include: [
         {
           model: Comment,
@@ -65,11 +66,11 @@ router.get('/:id', (req, res) => {
   });
 
 // POST /api/blogs/
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Blog.create({
       title: req.body.title,
-      blog_url: req.body.blog_url,
-      user_id: req.body.user_id
+      content: req.body.content,
+      user_id: req.session.user_id
     })
       .then(dbBlogData => res.json(dbBlogData))
       .catch(err => {
@@ -79,7 +80,7 @@ router.post('/', (req, res) => {
   });
 
 // PUT /api/blogs/:id
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Blog.update(
       {
         title: req.body.title
@@ -104,7 +105,7 @@ router.put('/:id', (req, res) => {
   });
 
 // DELETE /api/blogs/:id
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   Blog.destroy({
     where: {
       id: req.params.id

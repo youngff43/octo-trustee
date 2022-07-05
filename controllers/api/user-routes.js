@@ -1,5 +1,4 @@
 // CRUD operations
-
 const router = require('express').Router();
 const { User, Blog, Comment } = require('../../models');
 
@@ -27,7 +26,7 @@ router.get('/:id', (req, res) => {
       include: [
         {
           model: Blog,
-          attributes: ['id', 'title', 'blog_url', 'created_at']
+          attributes: ['id', 'title', 'content', 'created_at']
         },
         {
           model: Comment,
