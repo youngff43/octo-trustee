@@ -46,13 +46,8 @@ async function loginFormHandler(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-        // check the response status
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert(response.statusText);
-        }
-        }}
+        document.location.replace('/dashboard');
+      }}
 
 // listening for the submit event in the signup form
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);

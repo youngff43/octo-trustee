@@ -6,7 +6,7 @@
   <form class="edit-blog-form">
     <div class="form-group" id="blog-edit-group">
       <input id="blog-title-edit" name="blog-title" class="form-control" type="text" value="{{blog.title}}" />
-      <textarea id="blog-content-edit" rows="10" name="blog-content" class="form-control form-control-lg" type="textarea" value="{{blog.content}}"></textarea>
+      <textarea id="blog-content-edit" rows="10" name="blog-content" class="form-control form-control-lg" type="textarea">{{blog.content}}</textarea>
     </div>
     <div class="meta-edit">
       {{format_date blog.created_at}}
