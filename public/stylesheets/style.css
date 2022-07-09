@@ -1,188 +1,444 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-    color: #333;
-    font-size: large;
-  }
-  
-  a {
-    text-decoration: none;
-    color: green;
-    font-weight: bold;
-    transition: color .1s;
-  }
-  
-  a:hover {
-    color: goldenrod;
-  }
-  
-  button {
-    background-color: goldenrod;
-    border: 0;
-    padding: 1%;
-    color: white;
-    font-weight: bold;
-    transition: background-color .1s;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  button:hover {
-    background-color: green;
-  }
-  
-  .blog-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+body, html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: #333;
+  font-size: large;
+  background-size: cover;
+  background: linear-gradient(rgba(0, 16, 41, 0.9), rgba(13, 70, 61, 0.9), rgba(2, 39, 32, 0.85)), url('../img/background.png');
+}
 
-  li {
-    padding: 3%;
-  }
-  
-  div.title {
-    background-color: #ccc;
-    padding: 2%;
-  }
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
 
-  div.meta {
-    padding: 2%;
-    border-style: inset;
-  }
+main {
+  flex: 1;
+  padding: 2% 4%;
+}
 
+/* start of the header section */
+header {
+  border-bottom: 3px solid rgba(13, 70, 61);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1%;
+  font-size: x-large;
+  background-color: rgba(2, 39, 32);
+  position: sticky; top: 0;
+}
 
-  textarea, input {
-    padding: .5%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  textarea:focus, input:focus {
-    outline: none;
-    border: 2px solid green;
-  }
-  
-  textarea {
-    min-width: 40%;
-    min-height: 100px;
-  }
-  
-  form > div {
-    margin-bottom: 2%;
-  }
-  
-  form label {
-    display: block;
-  }
-  
-  .wrapper {
-    width: 100%;
-    min-height: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  header {
-    border-bottom: 3px solid green;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1%;
-    font-size: x-large;
-  }
-  
-  header h1 {
-    font-size: 1em;
-  }
-  
-  main {
-    flex: 1;
-    padding: 2% 4%;
-  }
-  
-  .btn-no-style {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    text-decoration: none;
-    color: green;
-    font-size: 100%;
-    font-weight: bold;
-    transition: color .1s;
-    margin-left: 16px;
-  }
-  
-  .btn-no-style:hover {
-    background: none;
-    color: goldenrod;
-  }
-  
-  .delete-blog-btn {
-    background-color: #d41414;
-  }
-  
-  .delete-blog-btn:hover {
-    background-color: #ff643d;
-  }
-  
-  .blog {
-    margin-bottom: 2%;
-    line-height: 150%;
-  }
-  
-  .blog .title span {
-    font-style: italic;
-    font-size: 90%;
-    color: #7d7d7d;
-  }
-  
-  .edit-link {
-    display: block;
-    margin: -1.5% 0 2% 0;
-  }
-  
-  .comment-form {
-    margin-bottom: 5%;
-  }
-  
-  .comment {
-    padding: 1%;
-    margin-bottom: 1%;
-  }
-  
-  .comment:nth-child(odd) {
-    background-color: lightgray;
+header h1 {
+  font-size: 1em;
+}
+/* end of the header section */
 
-  }
-  
-  .comment .meta {
-    font-size: 90%;
-    margin-bottom: .5%;
-    opacity: .7;
-  }
-  
-  .new-blog-form input {
-    width: 300px;
-  }
-  
-  .edit-blog-form {
-    margin-bottom: 5%;
-  }
-  
-  footer {
-    border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    padding: 1%;
-    font-size: 110%;
-  }
+/* styling for hyperlink elements  */
+a {
+  text-decoration: none;
+  color: #ccc;
+  font-weight: bold;
+  transition: color .1s;
+}
+
+a:hover {
+  color: rgba(118, 231, 335);
+}
+
+div.meta a {
+  color: black;
+}
+
+div.meta a:hover {
+  color: rgba(118, 231, 335);
+}
+/* end styling for hyperlink elements  */
+
+/* blog list */
+.blog-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+h2 {
+  text-align: center;
+  color: #ccc;
+}
+
+.your-blogs {
+  display: contents;
+}
+/* end of blog list */
+
+/* create new blog form */
+.new-blog-form {
+  background-color: rgba(13, 70, 61, 0.9);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  color: whitesmoke;
+}
+
+.new-blog-form h2 {
+  font-size: 30px;
+  margin: 10px;
+}
+
+#blog-title {
+  width: 200px;
+  padding: 10px;
+  box-shadow: 0 0 15px 4px rgb(0 0 0 / 20%);
+  margin: 10px;
+  border: 0;
+  font-size: large;
+  font-family: sans-serif;
+}
+
+label {
+  display: block;
+  font-weight: bolder;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+  border: 2px solid green;
+}
+
+textarea {
+  min-width: 85%;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 15px 4px rgb(0 0 0 / 20%);
+  margin-bottom: 2%;
+  font-size: large;
+  font-family: sans-serif;
+} 
+
+#new-blog-button {
+  background-color: silver;
+  border: 0;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 150px;
+  font-size: large;
+  margin: 10px;
+  padding: 10px;
+}
+
+#new-blog-button:hover {
+  background-color: green;
+}
+/* end of create new blog form */
+
+/* comment on the blog styling  */
+.comment-form {
+  margin-bottom: 5%;
+}
+
+#textarea-comment {
+  min-width: 96%;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 15px 4px rgb(1 50 32 / 70%);
+  margin-bottom: 2%;
+  font-size: large;
+  font-family: sans-serif;
+}
+
+#textarea-commentbtn {
+  background-color: rgba(0, 16, 41);
+  border-style: outset;
+  border-color: #ccc;
+  color: silver;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: large;
+  margin: 10px;
+  padding: 15px;
+}
+
+#textarea-commentbtn:hover {
+  background-color: silver;
+  color: rgba(0, 16, 41);
+  border-style: inset;
+  border-color: rgba(0, 16, 41);
+}
+/* end comment on the blog styling  */
+
+/* logout button styling  */
+.btn-no-style {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  color: silver;
+  font-size: 100%;
+  font-weight: bold;
+  transition: color .1s;
+  margin-left: 16px;
+}
+
+.btn-no-style:hover {
+  background: none;
+  color: rgba(118, 231, 335);
+}
+/* logout button styling ended */
+
+/* edit blog styling  */
+.edit-blog-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-blog-form {
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+#blog-edit-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: rgba(13, 70, 61, 0.9);
+  padding: 8px;
+  border-radius: 20px;
+}
+
+#blog-title-edit{
+  width: 200px;
+  padding: 10px;
+  box-shadow: 0 0 15px 4px rgb(0 0 0 / 20%);
+  margin: 10px;
+  border: 0;
+  font-size: large;
+  font-family: sans-serif;
+}
+
+#blog-content-edit {
+  min-width: 85%;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 15px 4px rgb(0 0 0 / 20%);
+  margin-bottom: 2%;
+  font-size: large;
+  font-family: sans-serif;
+  border: 0;
+}
+
+.meta-edit {
+  text-align: right;
+  color: whitesmoke;
+}
+
+.delete-blog-btn {
+  background-color: #d41414;
+  border-style: outset;
+  color: whitesmoke;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 150px;
+  font-size: large;
+  margin: 10px;
+  padding: 10px;
+}
+
+.delete-blog-btn:hover,
+.save-blog-btn:hover {
+  opacity: .4;
+}
+
+.save-blog-btn {
+  background-color: green;
+  border-style: outset;
+  color: whitesmoke;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 150px;
+  font-size: large;
+  margin: 10px;
+  padding: 10px;
+}
+
+/* single blog view  */
+.blog {
+  margin-bottom: 2%;
+  line-height: 150%;
+}
+
+div.content {
+  font-size: 20px;
+  border-right-style: solid;
+  border-left-style: solid;
+  padding: 8px;
+  border-color: #ccc;
+  background-color: #e5e5e5;
+  opacity: 0.7;
+  color: black;
+}
+
+div.title {
+  background-color: #ccc;
+  padding: 1px;
+  border-radius: 20px 20px 0px 0px;
+  text-align: center;
+  opacity: 0.5;
+  color: black;
+  text-transform: capitalize;
+}
+
+div.meta {
+  text-align: end;
+  border-right-style: solid;
+  border-left-style: solid;
+  border-bottom-style: solid;
+  padding: 10px;
+  border-color: #ccc;
+  background-color: #e5e5e5;
+  border-radius: 0px 0px 20px 20px;
+  opacity: 0.5;
+  color: black;
+}
+/* end of single blog view  */
+
+.blog .title span {
+  font-style: italic;
+  font-size: 90%;
+  color: #7d7d7d;
+}
+
+.edit-link {
+  display: block;
+  margin: -1.5% 0 2% 0;
+}
+
+/* comment styling  */
+.total-comments {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+}
+
+.total-comment:nth-child(odd) {
+  background-color: lightgray;
+  opacity: 0.7;
+  border-style: none;
+  color: black;
+  font-weight: 700;
+}
+
+.total-comment {
+  background-color: rgba(0, 22, 42);;
+  font-size: 90%;
+  margin-bottom: .5%;
+  padding: 10px;
+  font-weight: 700;
+  color: #ccc;
+  opacity: 0.9;
+}
+
+.comment-meta {
+  opacity: .7;
+  text-align: end;
+}
+/* end comment styling  */
+
+/* login and signup page styling  */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overall-login,
+.overall-signup {
+  margin: 20px;
+}
+
+.login-title,
+.signup-title {
+  display: flex;
+  justify-content: center;
+  color: green;
+}
+
+.forms {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+}
+
+.login-form,
+.signup-form {
+  background: rgba(0, 22, 42);
+  padding: 20px;
+  border-radius: 20px;
+  font-weight: bolder;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(118, 231, 335);
+}
+
+.login-buttons {
+  background-color: silver;
+  border: 0;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 150px;
+  font-size: large;
+  margin: 10px;
+  padding: 10px;
+}
+
+.login-buttons:hover {
+  background-color: rgba(118, 231, 335);
+}
+
+#email-login,
+#password-login,
+#username-signup,
+#email-signup,
+#password-signup {
+  width: 200px;
+  padding: 10px;
+  box-shadow: 0 0 15px 4px rgb(0 0 0 / 20%);
+  margin: 10px;
+  border: 0;
+  font-size: large;
+  font-family: sans-serif;
+}
+/* end of login and signup page styling  */
+
+/* footer section */
+footer {
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+  font-size: 110%;
+  color: #ccc;
+}
+/* end of footer section */

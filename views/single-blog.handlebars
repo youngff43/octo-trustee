@@ -5,11 +5,11 @@
 {{#if loggedIn}}
 <form class="comment-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea id="textarea-comment" name="comment-body" required></textarea>
   </div>
 
   <div>
-    <button type="submit">Comment on this Blog</button>
+    <button id="textarea-commentbtn" type="submit">Comment on this Blog</button>
   </div>
 </form>
 {{/if}}

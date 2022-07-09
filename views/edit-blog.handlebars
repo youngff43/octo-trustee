@@ -1,22 +1,24 @@
 {{!-- template to see the edit blog form --}}
-<article>
+<article class="edit-blog-container">
   <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Blog
-  </h2>
+    <h2>Edit Blog</h2>
+<div class="overall-edit-blog">
   <form class="edit-blog-form">
-    <div>
-      <input name="blog-title" type="text" value="{{blog.title}}" />
-      <input name="blog-content" type="text" value="{{blog.content}}" />
+    <div class="form-group" id="blog-edit-group">
+      <input id="blog-title-edit" name="blog-title" class="form-control" type="text" value="{{blog.title}}" />
+      <textarea id="blog-content-edit" rows="10" name="blog-content" class="form-control form-control-lg" type="textarea" value="{{blog.content}}"></textarea>
     </div>
-    <div>
-    {{format_date blog.created_at}}
-      |
+    <div class="meta-edit">
+      {{format_date blog.created_at}}
+        |
       <a href="/blog/{{blog.id}}">{{blog.comments.length}} {{format_plural "comment" blog.comments.length}}</a>
     </div>
-    <button type="submit">Save Blog</button>
-    <button type="button" class="delete-blog-btn">Delete Blog</button>
+    <div class="edit-blog-btns">
+      <button type="submit" class="save-blog-btn">Save Blog</button>
+      <button type="button" class="delete-blog-btn">Delete Blog</button>
+    </div>
   </form>
+</div>
 </article>
 
 {{!-- form to add a new comment and view all comments on the blog --}}
@@ -26,7 +28,7 @@
   </div>
 
   <div>
-    <button type="submit">Add Comment</button>
+    <button class="login-buttons" type="submit">Add Comment</button>
   </div>
 </form>
 

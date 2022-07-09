@@ -9,18 +9,22 @@ User.hasMany(Blog, {
 
 Blog.belongsTo(User, {
     foreignKey: 'user_id',
+    onDelete: 'SET NULL'
   });
 
 Comment.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
   });
   
 Comment.belongsTo(Blog, {
-    foreignKey: 'blog_id'
+    foreignKey: 'blog_id',
+    onDelete: 'SET NULL'
   });
   
 User.hasMany(Comment, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
   });
   
 Blog.hasMany(Comment, {

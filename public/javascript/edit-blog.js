@@ -4,7 +4,7 @@ async function editFormHandler(event) {
   
     // grabbing the data from the blog
     const title = document.querySelector('input[name="blog-title"]').value.trim();
-    const content = document.querySelector('input[name="blog-content"]').value.trim();
+    const content = document.querySelector('textarea[name="blog-content"]').value.trim();
 
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1

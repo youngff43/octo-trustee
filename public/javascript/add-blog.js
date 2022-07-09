@@ -1,9 +1,9 @@
 // async function to create a new blog 
 async function newFormHandler(event) {
     event.preventDefault();
-  
+
     const title = document.querySelector('input[name="blog-title"]').value;
-    const content = document.querySelector('input[name="content"]').value;
+    const content = document.querySelector('textarea[name="blog-content"]').value;
   
     const response = await fetch(`/api/blogs`, {
       method: 'POST',
