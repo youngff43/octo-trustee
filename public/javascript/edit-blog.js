@@ -12,6 +12,7 @@ async function editFormHandler(event) {
     const response = await fetch(`/api/blogs/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
+        blog_id: id,
         title,
         content
       }),
@@ -22,6 +23,7 @@ async function editFormHandler(event) {
   
     // check the response status
     if (response.ok) {
+      console.log(response);
       document.location.replace('/dashboard/');
     } else {
       alert(response.statusText);
