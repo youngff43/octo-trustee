@@ -19,12 +19,8 @@ async function signupFormHandler(event) {
           headers: { 'Content-Type': 'application/json' }
         });
 
-        // check the response status
-        if (response.ok) {
-          document.location.replace('/dashboard');
-        } else {
-            alert(response.statusText);
-        }
+        // replace the window with the dashboard link
+        document.location.replace('/dashboard');
       }
     }
 
